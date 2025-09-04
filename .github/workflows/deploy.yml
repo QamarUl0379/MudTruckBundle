@@ -1,22 +1,20 @@
-name: Deploy Addressables to GitHub Pages
+name: Deploy Addressables (Android)
 
 on:
   push:
     branches:
-      - main   # Deploy when pushing to main branch
-  workflow_dispatch: # Allow manual trigger
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Upload Addressables to Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ServerData/Android
-          publish_branch: gh-pages
+          publish_dir: ./Addressables
